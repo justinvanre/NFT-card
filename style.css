@@ -1,0 +1,303 @@
+/* 
+
+------------ importing fonts -----------
+
+*/
+
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+
+
+
+
+/* 
+
+--------- defining variables ---------
+
+*/
+
+
+:root {
+    --font-family: 'Outfit', sans-serif;
+    --font-size: 1.125rem; 
+
+    --color1: 255, 255, 255;
+    --color2: 139, 172, 217;
+    
+    --bg-color-card: 21, 38, 63;
+    --color-hover: 0, 255, 248;
+    --line-color: 46, 64, 90;
+}
+
+
+/* 
+
+-------- overriding user agent styling ----------
+
+all relative units (except root element) are calculated fased on font-size 18px
+
+*/
+
+
+:root {
+    box-sizing: inherit;
+}
+
+*, ::before, ::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-size: var(--font-size);
+    font-family: var(--font-family);
+    font-weight: 300;
+    margin: 0;
+
+    background-color: #0D192C;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+
+
+
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
+    min-height: 100vh;
+}
+
+
+
+/* 
+
+------------ styling default card --------------
+
+*/
+
+
+/* 
+
+----------- different versions of the card ---------------
+
+*/
+.card-variation-default {
+    --font-size: 1em;
+    font-size: var(--font-size);
+}
+
+.card-variation-1 {
+    --font-size: .8em;
+    font-size: var(--font-size);
+
+    --bg-color-card: 131, 56, 236;
+    --color1: 255, 190, 11;
+    --color2: 255, 255, 255;
+    --color-hover: 255, 0, 110;
+}
+
+
+.card-variation-2 {
+    --font-size: 1.2em;
+    font-size: var(--font-size);
+
+    --bg-color-card: 32, 32, 32;
+    --color1: 255, 209, 0;
+    --color2: 214, 214, 214;
+    --color-hover: 109, 35, 182;
+}
+
+/* 
+
+-----------------------------------
+
+*/
+
+
+.card {
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+    max-width: 18.17em;
+
+    padding: 1.333em;
+    border-radius: .833em;
+
+    background-color: rgb(var(--bg-color-card));
+    color: rgb(var(--color2));
+    font-family: 'Outfit', sans-serif;
+}
+
+.card a {
+    color: rgb(var(--color1));
+    transition: color 265ms ease-in-out;
+}
+
+.card a:hover {
+    color: rgba(var(--color-hover), 1);
+}
+
+.nft-showcase {
+    position: relative;
+    max-width: 15.444em;
+    max-height: 15.444em;
+    border-radius: .444em;
+    overflow: hidden;
+
+}
+
+.nft-showcase img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.nft-showcase .overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    background: rgba(var(--color-hover), .5);
+
+    opacity: 0;
+
+    transition: opacity 265ms ease-in-out;
+}
+
+.nft-showcase .overlay:hover {
+    opacity: 1;
+}
+
+.nft-showcase .overlay > div {
+    position: absolute;
+    width: 2.667em;
+    height: 2.667em;
+
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+}
+
+/* 
+
+------------ content section of the card -------------
+
+*/
+
+.card figcaption > div {
+    padding-block: 1.091em .889em;
+    border-bottom: .056em solid #2E405A;
+    margin-bottom: .889em;
+}
+
+.card figcaption h4 {
+    font-size: 1.222em;
+    font-weight: 600;
+    margin-block: 0;
+}
+
+.card figcaption p {
+    margin-block: .667em .889em
+}
+
+/* 
+
+--------- icon section -----------
+
+*/
+
+.card figcaption div > div {
+    font-size: .889em; /* Uses 16px as base font for measure calculations */
+    font-weight: 600;
+}
+
+.card figcaption div > div span + span {
+    color: inherit;
+    float: right;
+}
+
+.card figcaption div > div > span {
+    color: rgb(var(--color-hover));
+} 
+
+.card i {
+    position: relative;
+}
+
+.icon-ethereum {
+    color: rgb(var(--color-hover));
+    top: .165em;
+    margin-right: .405em;
+}
+
+.icon-ethereum img {
+    width: .69em;
+    height: 1.125em;
+}
+
+.icon-clock {
+    font-size: 1em;
+    top: .15em;
+    right: .481em;
+}
+
+.icon-clock img {
+    width: 1em;
+    height: 1em;
+}
+
+/* 
+
+    ----------- section of the artist -----------
+
+*/
+
+.card .artist {
+    font-size: .889em; /* Uses 16px as base font for measure calculations */
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+}
+
+.card .artist div {
+    width: 2em;
+    height: 2em;
+    border: .0625em solid white;
+    border-radius: 50%;
+    margin-right: 1em;
+}
+
+.card .artist img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.attribution {
+    position: absolute;
+    left: 2rem;
+    bottom: 2rem;
+
+    font-family: inherit;
+
+    color: rgb(var(--color2));
+}
+
+.attribution a,
+.attribution span {
+    color: rgb(var(--color-hover));
+}
